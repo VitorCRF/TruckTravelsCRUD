@@ -1,0 +1,48 @@
+﻿@model TruckTravelsCRUD.Models.Truck
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Adicionar</h1>
+
+<h4>Caminhão</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Brand" class="control-label">Marca</label>
+                <input asp-for="Brand" class="form-control" required/>
+                <span asp-validation-for="Brand" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Model" class="control-label">Modelo</label>
+                <input asp-for="Model" class="form-control" required />
+                <span asp-validation-for="Model" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Plate" class="control-label">Placa</label>
+                <input asp-for="Plate" class="form-control" required/>
+                <span asp-validation-for="Plate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Axles" class="control-label">Eixos</label>
+                <input asp-for="Axles" class="form-control" required/>
+                <span asp-validation-for="Axles" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Adicionar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Voltar</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

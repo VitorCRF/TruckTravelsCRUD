@@ -1,0 +1,59 @@
+﻿@model IEnumerable<TruckTravelsCRUD.Models.Travel>
+
+@{
+    ViewData["Title"] = "Viagens";
+}
+
+<h1>Viagens</h1>
+
+<p>
+    <a asp-action="Create">Adicionar viagem</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Data de partida
+            </th>
+            <th>
+                ID do motorista
+            </th>
+            <th>
+                Destino
+            </th>
+            <th>
+                Partida
+            </th>
+            <th>
+                Distância (km)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DriverId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Destination)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartFrom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalDistance)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Detalhes</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Deletar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
